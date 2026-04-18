@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>❄️ Navisha's 4th Birthday! ❄️</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Nunito:wght@400;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0a1628 0%, #1a3a5c 30%, #4a8db7 60%, #a8d8ea 85%, #d6eef8 100%);
+    color: #e8f4f8;
+    overflow-x: hidden;
+  }
+
+  .snowflakes { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+  .snowflake {
+    position: absolute; top: -20px; color: #fff; font-size: 1rem; opacity: 0.8;
+    animation: snowfall linear infinite;
+  }
+  @keyframes snowfall {
+    0%   { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0.9; }
+    50%  { transform: translateY(50vh) translateX(30px) rotate(180deg); opacity: 0.7; }
+    100% { transform: translateY(110vh) translateX(-20px) rotate(360deg); opacity: 0; }
+  }
+
+  .container {
+    position: relative; z-index: 1;
+    max-width: 620px; margin: 30px auto; padding: 16px;
+  }
+
+  .card {
+    background: linear-gradient(160deg, rgba(20,60,100,0.85), rgba(60,130,180,0.7), rgba(180,220,240,0.6));
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255,255,255,0.25);
+    border-radius: 28px;
+    padding: 44px 34px 36px;
+    box-shadow: 0 0 40px rgba(100,180,255,0.2), inset 0 0 60px rgba(255,255,255,0.05);
+    text-align: center;
+    position: relative;
+  }
+
+  .frozen-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.4rem;
+    background: linear-gradient(180deg, #ffffff 0%, #7ec8e3 40%, #b8e6f9 70%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 12px rgba(150,210,255,0.6));
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .tagline {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.15rem;
+    color: #c5e8f7;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    text-shadow: 0 0 10px rgba(150,210,255,0.5);
+  }
+
+  .snowflake-divider {
+    font-size: 1.2rem; letter-spacing: 12px; margin: 18px 0;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .message-box {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 20px 22px;
+    margin: 20px 0;
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #daedf5;
+  }
+  .message-box p { margin-bottom: 10px; }
+  .message-box p:last-child { margin-bottom: 0; }
+
+  .details {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    margin: 24px 0;
+  }
+  .detail-box {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 16px 10px;
+  }
+  .detail-box .icon { font-size: 1.5rem; margin-bottom: 2px; }
+  .detail-box .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: #9dc8e0; }
+  .detail-box .value { font-weight: 700; font-size: 0.95rem; color: #fff; }
+
+  .rsvp-heading {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 4px;
+    text-shadow: 0 0 8px rgba(150,210,255,0.4);
+  }
+  .rsvp-sub { font-size: 0.85rem; color: #a0cfe0; margin-bottom: 14px; }
+
+  form { text-align: left; }
+  label { font-weight: 700; font-size: 0.8rem; color: #b8dded; display: block; margin-top: 14px; letter-spacing: 0.5px; }
+  input, textarea, select {
+    width: 100%; padding: 11px 14px;
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    font-size: 1rem; font-family: inherit;
+    color: #fff; margin-top: 4px;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.4); }
+  input:focus, textarea:focus, select:focus {
+    border-color: #7ec8e3;
+    box-shadow: 0 0 12px rgba(126,200,227,0.3);
+    outline: none;
+  }
+  select option { background: #1a3a5c; color: #fff; }
+  textarea { resize: vertical; min-height: 70px; }
+
+  .btn {
+    margin-top: 22px; width: 100%; padding: 14px;
+    background: linear-gradient(135deg, #5ba3d9, #8fd3f4, #5ba3d9);
+    background-size: 200% 200%;
+    animation: btnShimmer 3s ease infinite;
+    color: #0a1628; font-size: 1.05rem; font-weight: 700;
+    border: none; border-radius: 14px; cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: transform .15s, box-shadow .15s;
+  }
+  @keyframes btnShimmer {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .btn:hover { transform: scale(1.03); box-shadow: 0 4px 20px rgba(100,200,255,0.4); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  .success-msg {
+    display: none; text-align: center; padding: 28px 10px;
+    color: #c5eaf8;
+  }
+  .success-msg.show { display: block; }
+  .success-msg .big { font-size: 3rem; margin-bottom: 8px; }
+  .success-msg p { font-size: 1.15rem; line-height: 1.6; }
+
+  .corner-accent { position: absolute; font-size: 2.5rem; opacity: 0.15; }
+  .corner-tl { top: 12px; left: 16px; }
+  .corner-tr { top: 12px; right: 16px; }
+  .corner-bl { bottom: 12px; left: 16px; }
+  .corner-br { bottom: 12px; right: 16px; }
+</style>
+</head>
+<body>
+
+<div class="snowflakes" id="snowflakes"></div>
+
+<div class="container">
+  <div class="card">
+    <div class="corner-accent corner-tl">❄</div>
+    <div class="corner-accent corner-tr">❄</div>
+    <div class="corner-accent corner-bl">❄</div>
+    <div class="corner-accent corner-br">❄</div>
+
+    <div style="font-size:2.2rem; margin-bottom: 6px;">👑</div>
+    <h1 class="frozen-title">Navisha's 4th Birthday!</h1>
+    <p class="tagline">For the First Time in FOUR-ever!</p>
+
+    <div class="snowflake-divider">❄ ❄ ❄ ❄ ❄</div>
+
+    <div class="details">
+      <div class="detail-box">
+        <div class="icon">📅</div>
+        <div class="label">Date</div>
+        <div class="value">May 31, 2026</div>
+      </div>
+      <div class="detail-box">
+        <div class="icon">🕟</div>
+        <div class="label">Time</div>
+        <div class="value">4:30 – 6:30 PM</div>
+      </div>
+      <div class="detail-box">
+        <div class="icon">📍</div>
+        <div class="label">Venue</div>
+        <div class="value">Jam Time<br/><span style="font-weight:400;font-size:0.8rem;">Natick Mall</span></div>
+      </div>
+      <div class="detail-box">
+        <div class="icon">🅿️</div>
+        <div class="label">Parking</div>
+        <div class="value" style="font-size:0.85rem;">Garage A<br/><span style="font-weight:400;font-size:0.78rem;">(behind Macy's)</span></div>
+      </div>
+    </div>
+
+    <div class="message-box">
+      <p>Our little snow queen is turning 4! ❄️ Join us for a magical celebration at <strong>Jam Time</strong> for Navisha's 4th Birthday.</p>
+      <p>🍕 Pizza, snacks, and cake will be served — please let us know if there are any food allergies.</p>
+      <p>👧🧒 Siblings are welcome!</p>
+    </div>
+
+    <div class="snowflake-divider">❄ ❄ ❄</div>
+
+    <div id="formSection">
+      <h2 class="rsvp-heading">❄ RSVP ❄</h2>
+      <p class="rsvp-sub">Please let us know if you can join the magic!</p>
+
+      <form id="rsvpForm">
+        <label for="guest_name">Your Name *</label>
+        <input id="guest_name" name="guest_name" required placeholder="e.g. Jane Doe" />
+
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" required placeholder="jane@example.com" />
+
+        <label for="attending">Will you attend? *</label>
+        <select id="attending" name="attending" required>
+          <option value="yes">❄️ Yes, we'll be there!</option>
+          <option value="no">😢 Sorry, can't make it</option>
+        </select>
+
+        <label for="num_guests">Number of Guests (including kids)</label>
+        <input id="num_guests" name="num_guests" type="number" min="1" max="10" value="1" />
+
+        <label for="message">Allergies or a message (optional)</label>
+        <textarea id="message" name="message" placeholder="Any food allergies, dietary needs, or a birthday wish for Navisha!"></textarea>
+
+        <button class="btn" type="submit">Send RSVP ❄️</button>
+      </form>
+    </div>
+
+    <div class="success-msg" id="successMsg">
+      <div class="big">❄️ 🏰 ❄️</div>
+      <p><strong>Thank you!</strong><br/>Your RSVP has been received.<br/>We can't wait to celebrate with you!<br/>✨ Let it go… to the party! ✨</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const container = document.getElementById('snowflakes');
+  const flakes = ['❄','❅','❆','✦','✧','·'];
+  for (let i = 0; i < 50; i++) {
+    const s = document.createElement('span');
+    s.className = 'snowflake';
+    s.textContent = flakes[Math.floor(Math.random() * flakes.length)];
+    s.style.left = Math.random() * 100 + '%';
+    s.style.animationDuration = (5 + Math.random() * 12) + 's';
+    s.style.animationDelay = (Math.random() * 10) + 's';
+    s.style.fontSize = (0.6 + Math.random() * 1.2) + 'rem';
+    s.style.opacity = 0.3 + Math.random() * 0.6;
+    container.appendChild(s);
+  }
+
+  document.getElementById('rsvpForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    const body = {
+      guest_name: document.getElementById('guest_name').value,
+      email: document.getElementById('email').value,
+      attending: document.getElementById('attending').value,
+      num_guests: document.getElementById('num_guests').value,
+      message: document.getElementById('message').value,
+    };
+
+    try {
+      const res = await fetch('/api/rsvp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      if (!res.ok) throw new Error('Server error');
+      document.getElementById('formSection').style.display = 'none';
+      document.getElementById('successMsg').classList.add('show');
+    } catch (err) {
+      alert('Oops, something went wrong. Please try again!');
+      btn.disabled = false;
+      btn.textContent = 'Send RSVP ❄️';
+    }
+  });
+</script>
+</body>
+</html>
