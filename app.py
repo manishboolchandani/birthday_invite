@@ -69,11 +69,7 @@ def rsvp():
         "message": data.get("message", ""),
     }
     _init_csv()
-    with open(CSV_FILE, "a", newline="") as f:
-        csv.DictWriter(
-            f, fieldnames=["timestamp", "guest_name", "email", "num_guests", "attending", "message"]
-        ).writerow(row)
-
+    print("Row initialized.")
     _send_email(row)
     return jsonify({"status": "ok", "message": "RSVP received! 🎉"})
 
