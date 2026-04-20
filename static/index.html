@@ -95,6 +95,18 @@
     padding: 16px 10px;
   }
   .detail-box .icon { font-size: 1.5rem; margin-bottom: 2px; }
+  .mini-cal {
+    display: inline-block; width: 32px; height: 34px;
+    background: #fff; border-radius: 5px; overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2); text-align: center; line-height: 1;
+  }
+  .mini-cal .cal-month {
+    background: #e53935; color: #fff; font-size: 0.45rem; font-weight: 700;
+    padding: 2px 0; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .mini-cal .cal-day {
+    color: #222; font-size: 0.95rem; font-weight: 700; padding-top: 2px;
+  }
   .detail-box .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; color: #9dc8e0; }
   .detail-box .value { font-weight: 700; font-size: 0.95rem; color: #fff; }
 
@@ -153,6 +165,30 @@
   .success-msg .big { font-size: 3rem; margin-bottom: 8px; }
   .success-msg p { font-size: 1.15rem; line-height: 1.6; }
 
+  /* ── Birthday Girl Photo ── */
+  .photo-frame {
+    width: 170px; height: 210px;
+    margin: 12px auto 16px;
+    border-radius: 50%;
+    padding: 5px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #a8d8ea, #fff, #7ec8e3, #fff, #b8e6f9);
+    box-shadow: 0 0 20px rgba(100,200,255,0.35), 0 0 40px rgba(150,210,255,0.15);
+    animation: frameGlow 3s ease-in-out infinite;
+  }
+  @keyframes frameGlow {
+    0%, 100% { box-shadow: 0 0 20px rgba(100,200,255,0.35), 0 0 40px rgba(150,210,255,0.15); }
+    50% { box-shadow: 0 0 28px rgba(100,200,255,0.55), 0 0 56px rgba(150,210,255,0.25); }
+  }
+  .photo-frame img {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+    transform: scale(1.20);
+    display: block;
+  }
+
   .corner-accent { position: absolute; font-size: 2.5rem; opacity: 0.15; }
   .corner-tl { top: 12px; left: 16px; }
   .corner-tr { top: 12px; right: 16px; }
@@ -175,28 +211,32 @@
     <h1 class="frozen-title">Navisha's 4th Birthday!</h1>
     <p class="tagline">For the First Time in FOUR-ever!</p>
 
+    <div class="photo-frame">
+      <img src="/static/Navisha.JPG" alt="Navisha" />
+    </div>
+
     <div class="snowflake-divider">❄ ❄ ❄ ❄ ❄</div>
 
     <div class="details">
       <div class="detail-box">
-        <div class="icon">📅</div>
-        <div class="label">Date</div>
-        <div class="value">May 31, 2026</div>
-      </div>
-      <div class="detail-box">
-        <div class="icon">🕟</div>
-        <div class="label">Time</div>
-        <div class="value">4:30 – 6:30 PM</div>
+        <div class="icon"><div class="mini-cal"><div class="cal-month">MAY</div><div class="cal-day">31</div></div></div>
+        <div class="label">Date & Time</div>
+        <div class="value">May 31, 2026<br/><span style="font-weight:400;font-size:0.85rem;">4:30 – 6:30 PM</span></div>
       </div>
       <div class="detail-box">
         <div class="icon">📍</div>
         <div class="label">Venue</div>
-        <div class="value">Jam Time<br/><span style="font-weight:400;font-size:0.8rem;">Natick Mall</span></div>
+        <div class="value">Jam Time Natick Mall<br/><span style="font-weight:400;font-size:0.78rem;">🅿️ Parking at Garage A (behind Macy's)</span></div>
       </div>
       <div class="detail-box">
-        <div class="icon">🅿️</div>
-        <div class="label">Parking</div>
-        <div class="value" style="font-size:0.85rem;">Garage A<br/><span style="font-weight:400;font-size:0.78rem;">(behind Macy's)</span></div>
+        <div class="icon">🎂</div>
+        <div class="label">Cake Cutting</div>
+        <div class="value">5:00 PM</div>
+      </div>
+      <div class="detail-box">
+        <div class="icon">🪄</div>
+        <div class="label">Magic Show</div>
+        <div class="value">5:30 PM</div>
       </div>
     </div>
 
@@ -206,11 +246,10 @@
       <p>👧🧒 Siblings are welcome!</p>
     </div>
 
-    <div class="snowflake-divider">❄ ❄ ❄</div>
-
     <div id="formSection">
       <h2 class="rsvp-heading">❄ RSVP ❄</h2>
       <p class="rsvp-sub">Please let us know if you can join the magic!</p>
+      <p style="text-align:center;font-size:0.85rem;color:#f0c47b;margin-bottom:14px;font-weight:700;">📌 Please RSVP by May 14, 2026</p>
 
       <form id="rsvpForm">
         <label for="guest_name">Your Name *</label>
