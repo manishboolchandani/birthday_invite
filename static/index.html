@@ -243,6 +243,7 @@
     <div class="message-box">
       <p>Our little snow queen is turning 4! ❄️ Join us for a magical celebration at <strong>Jam Time</strong> for Navisha's 4th Birthday.</p>
       <p>🍕 Pizza, snacks, and cake will be served — please let us know if there are any food allergies.</p>
+      <p>👧🧒 Siblings are welcome!</p>
     </div>
 
     <div id="formSection">
@@ -263,8 +264,16 @@
           <option value="no">😢 Sorry, can't make it</option>
         </select>
 
-        <label for="num_guests">Number of Guests (including kids)</label>
-        <input id="num_guests" name="num_guests" type="number" min="1" max="10" value="1" />
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div>
+            <label for="num_adults">Adults</label>
+            <input id="num_adults" name="num_adults" type="number" min="0" max="10" value="1" />
+          </div>
+          <div>
+            <label for="num_kids">Kids</label>
+            <input id="num_kids" name="num_kids" type="number" min="0" max="10" value="1" />
+          </div>
+        </div>
 
         <label for="message">Allergies or a message (optional)</label>
         <textarea id="message" name="message" placeholder="Any food allergies, dietary needs, or a birthday wish for Navisha!"></textarea>
@@ -305,7 +314,8 @@
       guest_name: document.getElementById('guest_name').value,
       email: document.getElementById('email').value,
       attending: document.getElementById('attending').value,
-      num_guests: document.getElementById('num_guests').value,
+      num_adults: document.getElementById('num_adults').value,
+      num_kids: document.getElementById('num_kids').value,
       message: document.getElementById('message').value,
     };
 

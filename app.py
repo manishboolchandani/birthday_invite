@@ -21,7 +21,7 @@ def _init_csv():
     if not os.path.exists(CSV_FILE):
         with open(CSV_FILE, "w", newline="") as f:
             csv.writer(f).writerow(
-                ["timestamp", "guest_name", "email", "num_guests", "attending", "message"]
+                ["timestamp", "guest_name", "email", "num_adults", "num_kids", "attending", "message"]
             )
 
 
@@ -34,7 +34,8 @@ def _send_email(data: dict):
         f"Name: {data['guest_name']}\n"
         f"Email: {data['email']}\n"
         f"Attending: {data['attending']}\n"
-        f"Number of guests: {data['num_guests']}\n"
+        f"Number of adults: {data['num_adults']}\n"
+        f"Number of kids: {data['num_kids']}\n"
         f"Message: {data['message']}\n"
         f"Time: {data['timestamp']}"
     )
@@ -64,7 +65,8 @@ def rsvp():
         "timestamp": datetime.now().isoformat(),
         "guest_name": data.get("guest_name", ""),
         "email": data.get("email", ""),
-        "num_guests": data.get("num_guests", 1),
+        "num_adults": data.get("num_adults", 1),
+        "num_kids": data.get("num_kids", 0),
         "attending": data.get("attending", "yes"),
         "message": data.get("message", ""),
     }
